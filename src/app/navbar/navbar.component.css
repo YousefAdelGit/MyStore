@@ -1,0 +1,22 @@
+div{
+    display: flex;
+    padding: 10px ;
+    background-color: black;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+h1{
+    color: white;
+    margin-right: auto;
+    margin-left: 5px;
+}
+a{
+    margin-left: 20px ;
+    margin-right: 80px ;
+    color: white;
+    text-decoration: none;
+}
+a:hover{
+    opacity: 0.5;
+}

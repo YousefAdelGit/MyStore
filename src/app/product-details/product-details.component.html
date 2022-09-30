@@ -1,0 +1,14 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="img-div">
+        <img src="{{filteredProduct.url}}" alt="{{filteredProduct.name}}">
+    </div>
+    <div>
+        <ul>
+            <li style="font-size: x-large; font-weight: bold;">{{filteredProduct.name}}</li>
+            <li>{{filteredProduct.price}}$</li>
+            <p>{{filteredProduct.description}}</p>
+            <li><button (click)="addToCart(filteredProduct)">Add to cart</button></li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+
+/* form style */
+.checkout-confirmation form{
+    display: flex;
+    flex: wrap;
+    flex-direction: column;
+    text-align: left;
+}
+input{
+    border: 1px solid #ddd;
+    border-radius: 4px; 
+    padding: 6px;
+}
+.validation-error{
+    color: red;
+}

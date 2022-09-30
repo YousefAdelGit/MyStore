@@ -1,0 +1,39 @@
+
+  <div class="checkout-confirmation">
+    <form [formGroup]="checkOutForm" #form="ngForm" (ngSubmit)="onSubmit()">
+      <label for="">Full Name</label>
+      <br>
+<input formControlName="UserName" [ngClass]="{'is-invalid':submitted && checkOutForm.controls.UserName.errors}" type="text" name="username" required minlength="4" placeholder="(minimum 4 characters)" [(ngModel)]="username">
+      <div class="validation-error" *ngIf="checkOutForm.controls.UserName.invalid && checkOutForm.controls.UserName.touched">
+        <span *ngIf="checkOutForm.controls.UserName.errors?.['required']">UserName is required</span>
+        <span *ngIf="checkOutForm.controls.UserName.errors?.['pattern']">Only characters should be allowed here.</span>
+        <span *ngIf="checkOutForm.controls.UserName.errors?.['minlength']">
+            min length is 4 characters
+        </span>
+      </div>
+      <br>
+      <label for="">Address</label>
+      <br>
+      <input formControlName="Address" type="text" name="address" required minlength="6" placeholder="(minimum 6 characters)" [(ngModel)]="address">
+      <div class="validation-error" *ngIf="checkOutForm.controls.Address.invalid && checkOutForm.controls.Address.touched">
+        <span *ngIf="checkOutForm.controls.Address.errors?.['required']">Address is required</span>
+          <span *ngIf="checkOutForm.controls.Address.errors?.['minlength']">
+            min length is 6 characters
+          </span>
+      </div>
+      <br>
+      <label for="">Credit card number</label>
+      <br>
+      <input formControlName="CreditCard" type="text" name="credit-card" required minlength="16" maxlength="16" placeholder="(16-digit number)" [(ngModel)]="creditCard">
+      <div class="validation-error" *ngIf="checkOutForm.controls.CreditCard.invalid && checkOutForm.controls.CreditCard.touched">
+        <span *ngIf="checkOutForm.controls.CreditCard.errors?.['required']">Credit Card is required</span>
+        <span *ngIf="checkOutForm.controls.CreditCard.errors?.['pattern']">Only number should be allowed here.</span>
+        <span *ngIf="checkOutForm.controls.CreditCard.errors?.['minlength']">
+          min length is 16 characters
+        </span>
+      </div>
+      <br>
+      <p style="opacity: .7;">We'll never share your payment details with anyone else.</p>
+      <a  routerLink="/confirmationPage"><button type="submit" [disabled]="!checkOutForm.valid" value="Submit" (click)="navToShopingCart()">Submit</button></a>
+    </form>
+  </div>

@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+
+
+<div class="container" *ngIf="product.length !=0">
+  <div class="items">
+  <div class="items-container" *ngFor="let product of product, let i = index">
+    <img  src="{{product.url}}" alt="{{product.name}}">
+    <div class="items-details">
+      <h2>{{product.name}}</h2>
+    <h3>{{product.price}}$</h3>
+    <h3><select class="select" name="pieces" [value]="product.amount"  (change)="InputValidation($event,i)" >
+        <option *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]" [value]="number"   >
+          {{number}}
+        </option>
+      </select>
+    </h3>
+      <h3>Product Total Price: {{product.price * product.amount}}$</h3>
+      <button (click)="removeItem(product)">Remove</button>
+    </div>
+  </div>
+  <h3 class="totalproduct">All product total: {{total}}</h3>
+  </div>  
+
+  <app-checkout-form></app-checkout-form>
+</div>
+
+<div class="empty-cart" *ngIf="product.length ==0">
+  <h1 class="empty-head">Shopping Cart</h1>
+  <div class="cart-contiener">
+    <h2>your cart is empty!</h2>
+    <h3>Add items to it now</h3>
+    <a  routerLink="/"><button >Shop now</button></a>
+  </div>
+</div>

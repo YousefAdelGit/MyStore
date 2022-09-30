@@ -1,0 +1,12 @@
+<app-navbar></app-navbar>
+<ul class="productsUls" *ngFor="let products of productList">
+    <li><a routerLink="/product-details/{{products.id}}">
+        <img class="img-url"
+        src="{{products.url}}"
+        alt="{{products.name}}">
+        </a>
+    </li>
+    <li>{{products.name}}</li>
+    <li>{{products.price}}$</li>
+    <button (click)="addToCart(products)">Add to cart </button>
+</ul>
